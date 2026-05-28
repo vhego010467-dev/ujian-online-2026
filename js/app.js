@@ -1,4 +1,3 @@
-```javascript id="v7u2lx"
 import pesertaDB from "../data/peserta-db.js";
 
 const form = document.getElementById("loginForm");
