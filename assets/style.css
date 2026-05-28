@@ -1,0 +1,67 @@
+* {
+}
+
+.input-group input:focus {
+  border-color: #53d6ff;
+  box-shadow: 0 0 12px rgba(83,214,255,0.4);
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #0bbd87, #1c8ef9);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.status {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 14px;
+  min-height: 20px;
+  color: #ffe082;
+}
+
+@media(max-width: 600px) {
+
+  .login-card {
+    padding: 24px;
+  }
+
+  .header-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo {
+    width: 72px;
+    height: 72px;
+  }
+
+  .title-area h1 {
+    font-size: 20px;
+  }
+
+  .title-area h2 {
+    font-size: 13px;
+  }
+
+  .title-area h3 {
+    font-size: 12px;
+  }
+}

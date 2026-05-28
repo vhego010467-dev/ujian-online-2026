@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+</head>
+<body>
+
+<div class="background-layer"></div>
+
+<div class="login-wrapper">
+
+  <div class="login-card">
+
+    <div class="header-section">
+      <img src="assets/logo-sekolah.png" class="logo" alt="Logo Sekolah">
+
+      <div class="title-area">
+        <h1>SMP PGRI 1 CIBINONG</h1>
+        <h2>ASESMEN SUMATIF AKHIR SEMESTER</h2>
+        <h3>Tahun Ajaran 2026/2027</h3>
+      </div>
+    </div>
+
+    <form id="loginForm" autocomplete="off">
+
+      <div class="input-group">
+        <label>ID Peserta</label>
+        <input
+          type="text"
+          id="pesertaId"
+          placeholder="Contoh : P0001"
+          maxlength="5"
+          required
+        >
+      </div>
+
+      <div class="input-group">
+        <label>Password</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="Password"
+          maxlength="20"
+          required
+        >
+      </div>
+
+      <button type="submit" id="loginBtn">
+        LOGIN UJIAN
+      </button>
+
+      <div class="status" id="statusBox"></div>
+
+    </form>
+
+  </div>
+
+</div>
+
+<script src="js/security.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
