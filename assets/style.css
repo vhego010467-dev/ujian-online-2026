@@ -51,19 +51,24 @@ body {
 
 /* WRAPPER */
 
+```css id="g7d3kx"
 .login-wrapper {
 
   width: 100%;
 
+  min-height: 100vh;
+
   display: flex;
   justify-content: center;
-  align-items: center;
 
-  padding: 20px;
+  padding:
+    40px 20px 60px;
 
   position: relative;
   z-index: 2;
 }
+```
+
 
 /* LOGIN CARD */
 
