@@ -16,7 +16,7 @@ form.addEventListener("submit", function (e) {
 
     // redirect tujuan ujian
     window.location.href =
-      "https://google.com";
+      "https://sites.google.com/view/final-exam-v2025/HALAMAN-IOS?authuser=1";
   } else {
     alert("ID atau password salah");
   }
