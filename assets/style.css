@@ -5,17 +5,12 @@
   box-sizing: border-box;
 }
 
+```css id="w0x8kd"
 body {
 
   min-height: 100vh;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   font-family: Arial, sans-serif;
-
-  overflow: hidden;
 
   background:
     linear-gradient(
@@ -24,7 +19,11 @@ body {
       #1e293b,
       #334155
     );
+
+  overflow-x: hidden;
 }
+```
+
 
 /* BACKGROUND */
 
