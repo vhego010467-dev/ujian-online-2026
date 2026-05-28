@@ -1,6 +1,10 @@
 import pesertaDB from "../data/peserta-db.js";
 
-const form = document.getElementById("loginForm");
+console.log("APP.JS TERBACA");
+console.log(pesertaDB);
+
+const form =
+  document.getElementById("loginForm");
 
 const statusBox =
   document.getElementById("statusBox");
@@ -9,16 +13,22 @@ form.addEventListener("submit", function (e) {
 
   e.preventDefault();
 
-  const id = document
-    .getElementById("pesertaId")
-    .value
-    .trim()
-    .toUpperCase();
+  console.log("FORM DIKLIK");
 
-  const password = document
-    .getElementById("password")
-    .value
-    .trim();
+  const id =
+    document
+      .getElementById("pesertaId")
+      .value
+      .trim()
+      .toUpperCase();
+
+  const password =
+    document
+      .getElementById("password")
+      .value
+      .trim();
+
+  console.log(id, password);
 
   if (
     pesertaDB[id] &&
@@ -26,23 +36,21 @@ form.addEventListener("submit", function (e) {
   ) {
 
     statusBox.innerHTML =
-      "Login berhasil. Mengalihkan ke halaman ujian...";
+      "Login berhasil...";
 
-    // delay kecil anti spam / anti double click
     setTimeout(() => {
 
       window.location.replace(
-        "https://sites.google.com/view/final-exam-v2025/HALAMAN-IOS?authuser=1"
+        "https://google.com"
       );
 
-    }, 1200);
+    }, 1000);
 
   } else {
 
     statusBox.innerHTML =
-      "ID Peserta atau Password salah.";
+      "ID atau password salah";
 
   }
 
 });
-```
