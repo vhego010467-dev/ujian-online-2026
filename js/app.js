@@ -1,4 +1,4 @@
-```javascript
+
 import pesertaDB from "../data/peserta-db.js";
 
 const form =
