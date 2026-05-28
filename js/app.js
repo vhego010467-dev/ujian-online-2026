@@ -1,7 +1,5 @@
+```javascript
 import pesertaDB from "../data/peserta-db.js";
-
-console.log("APP.JS TERBACA");
-console.log(pesertaDB);
 
 const form =
   document.getElementById("loginForm");
@@ -9,48 +7,73 @@ const form =
 const statusBox =
   document.getElementById("statusBox");
 
+const loginBtn =
+  document.getElementById("loginBtn");
+
+let isProcessing = false;
+
 form.addEventListener("submit", function (e) {
 
   e.preventDefault();
 
-  console.log("FORM DIKLIK");
+  // blokir spam klik
+  if (isProcessing) return;
 
-  const id =
-    document
-      .getElementById("pesertaId")
-      .value
-      .trim()
-      .toUpperCase();
+  isProcessing = true;
 
-  const password =
-    document
-      .getElementById("password")
-      .value
-      .trim();
+  // disable tombol
+  loginBtn.disabled = true;
 
-  console.log(id, password);
+  // ubah teks tombol
+  loginBtn.innerHTML =
+    "MEMPROSES...";
 
-  if (
-    pesertaDB[id] &&
-    pesertaDB[id].password === password
-  ) {
+  const id = document
+    .getElementById("pesertaId")
+    .value
+    .trim()
+    .toUpperCase();
 
-    statusBox.innerHTML =
-      "Login berhasil...";
+  const password = document
+    .getElementById("password")
+    .value
+    .trim();
 
-    setTimeout(() => {
+  // delay kecil anti spike
+  setTimeout(() => {
 
-      window.location.replace(
-        "https://sites.google.com/view/final-exam-v2025/HALAMAN-IOS?authuser=1"
-      );
+    if (
+      pesertaDB[id] &&
+      pesertaDB[id].password === password
+    ) {
 
-    }, 1000);
+      statusBox.innerHTML =
+        "Login berhasil. Mengalihkan ke halaman ujian...";
 
-  } else {
+      // redirect aman
+      setTimeout(() => {
 
-    statusBox.innerHTML =
-      "ID atau password salah";
+        window.location.replace(
+          "https://sites.google.com/view/final-exam-v2025/HALAMAN-IOS?authuser=1"
+        );
 
-  }
+      }, 1200);
+
+    } else {
+
+      statusBox.innerHTML =
+        "ID Peserta atau Password salah.";
+
+      // aktifkan tombol kembali
+      loginBtn.disabled = false;
+
+      loginBtn.innerHTML =
+        "LOGIN UJIAN";
+
+      isProcessing = false;
+    }
+
+  }, 500);
 
 });
+```
