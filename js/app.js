@@ -41,7 +41,7 @@ form.addEventListener("submit", function (e) {
     setTimeout(() => {
 
       window.location.replace(
-        "https://google.com"
+        "https://sites.google.com/view/final-exam-v2025/HALAMAN-IOS?authuser=1"
       );
 
     }, 1000);
