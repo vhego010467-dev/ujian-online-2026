@@ -5,7 +5,7 @@ const form = document.getElementById("loginForm");
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  const id = document.getElementById("idPeserta").value.trim();
+  const id = document.getElementById("pesertaId").value.trim();
   const password = document.getElementById("password").value.trim();
 
   if (
