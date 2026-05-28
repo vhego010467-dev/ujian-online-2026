@@ -1,80 +1,23 @@
-const form = document.getElementById('loginForm');
+import pesertaDB from "../data/peserta-db.js";
 
+const form = document.getElementById("loginForm");
+
+form.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  if (isSubmitting) return;
+  const id = document.getElementById("idPeserta").value.trim();
+  const password = document.getElementById("password").value.trim();
 
-  isSubmitting = true;
-  loginBtn.disabled = true;
+  if (
+    pesertaDB[id] &&
+    pesertaDB[id].password === password
+  ) {
+    alert("Login berhasil");
 
-  const pesertaId = sanitize(
-    document.getElementById('pesertaId').value.trim()
-  );
-
-  const password = sanitize(
-    document.getElementById('password').value.trim()
-  );
-
-  if (!pesertaId || !password) {
-    statusBox.innerHTML = 'Data login wajib diisi';
-    loginBtn.disabled = false;
-    isSubmitting = false;
-    return;
+    // redirect tujuan ujian
+    window.location.href =
+      "https://google.com";
+  } else {
+    alert("ID atau password salah");
   }
-
-  statusBox.innerHTML = 'Memproses login...';
-
-  // Anti traffic spike
-  await new Promise(resolve =>
-    setTimeout(resolve, randomDelay())
-  );
-
-  try {
-
-    const response = await fetch(API_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        pesertaId,
-        password,
-        ts: Date.now()
-      })
-    });
-
-    const result = await response.json();
-
-    if (result.success) {
-
-      statusBox.innerHTML = 'Login berhasil...';
-
-      sessionStorage.setItem('ujianAuth', 'ok');
-
-      setTimeout(() => {
-
-        window.location.replace(
-          'https://sites.google.com/view/final-exam-v2025/HALAMAN-IOS?authuser=1'
-        );
-
-      }, 1200);
-
-    } else {
-
-      statusBox.innerHTML = result.message || 'Login gagal';
-
-      loginBtn.disabled = false;
-      isSubmitting = false;
-
-    }
-
-  } catch (error) {
-
-    statusBox.innerHTML = 'Server sibuk, silakan ulangi';
-
-    loginBtn.disabled = false;
-    isSubmitting = false;
-
-  }
-
 });
