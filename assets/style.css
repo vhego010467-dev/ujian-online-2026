@@ -1,11 +1,12 @@
-```css id="r6y9qt"
+```css
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-```css id="w0x8kd"
+/* BODY */
+
 body {
 
   min-height: 100vh;
@@ -22,8 +23,6 @@ body {
 
   overflow-x: hidden;
 }
-```
-
 
 /* BACKGROUND */
 
@@ -51,7 +50,6 @@ body {
 
 /* WRAPPER */
 
-```css id="g7d3kx"
 .login-wrapper {
 
   width: 100%;
@@ -59,23 +57,28 @@ body {
   min-height: 100vh;
 
   display: flex;
+
   justify-content: center;
 
   padding:
     40px 20px 60px;
 
   position: relative;
+
   z-index: 2;
 }
-```
-
 
 /* LOGIN CARD */
 
 .login-card {
 
   width: 100%;
+
   max-width: 430px;
+
+  margin-top: 40px;
+
+  margin-bottom: 40px;
 
   padding: 35px;
 
@@ -101,6 +104,8 @@ body {
 
   margin-bottom: 28px;
 }
+
+/* LOGO */
 
 .logo {
 
@@ -238,6 +243,11 @@ button:hover {
 /* RESPONSIVE */
 
 @media (max-width: 480px) {
+
+  .login-wrapper {
+
+    padding-top: 25px;
+  }
 
   .login-card {
 
