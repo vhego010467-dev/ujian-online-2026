@@ -76,4 +76,4 @@ form.addEventListener("submit", function (e) {
   }, 500);
 
 });
-```
+
