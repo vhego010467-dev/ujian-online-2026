@@ -1,5 +1,5 @@
 const BACKEND_URL =
-  "https://exam-worker.kiwi010467.workers.dev";
+  "https://exam-worker.vhego010467.workers.dev";
 
 const form = document.getElementById("loginForm");
 const statusBox = document.getElementById("statusBox");
