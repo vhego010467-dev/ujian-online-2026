@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel Ujian</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #0f172a;
+      color: white;
+      padding: 30px;
+    }
+
+    .box {
+      max-width: 800px;
+      margin: auto;
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    input, button {
+      padding: 10px;
+      margin: 5px;
+      width: 95%;
+    }
+
+    button {
+      cursor: pointer;
+      background: #2563eb;
+      color: white;
+      border: none;
+    }
+
+    #panel {
+      display: none;
+    }
+
+    pre {
+      background: #111827;
+      padding: 10px;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+
+  <div id="loginBox">
+    <h2>Admin Login</h2>
+    <input id="username" placeholder="Username">
+    <input id="password" type="password" placeholder="Password">
+    <button onclick="adminLogin()">LOGIN</button>
+  </div>
+
+  <div id="panel">
+    <h2>Admin Panel Ujian</h2>
+
+    <button onclick="listPeserta()">Refresh Data</button>
+
+    <h3>Tambah Peserta</h3>
+    <input id="newId" placeholder="P0001">
+    <input id="newPass" placeholder="Password">
+    <button onclick="addPeserta()">Tambah</button>
+
+    <h3>Update Password</h3>
+    <input id="editId" placeholder="P0001">
+    <input id="editPass" placeholder="Password baru">
+    <button onclick="updatePeserta()">Update</button>
+
+    <h3>Hapus Peserta</h3>
+    <input id="deleteId" placeholder="P0001">
+    <button onclick="deletePeserta()">Hapus</button>
+
+    <pre id="resultBox"></pre>
+  </div>
+
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>
