@@ -89,3 +89,5 @@ window.listPeserta = listPeserta;
 window.addPeserta = addPeserta;
 window.updatePeserta = updatePeserta;
 window.deletePeserta = deletePeserta;
+
+alert("ADMIN JS LOADED");
