@@ -49,7 +49,7 @@ form.addEventListener("submit", async function (e) {
 
       setTimeout(() => {
         window.location.replace(
-          "https://sites.google.com/view/final-exam-v2025/HALAMAN-IOS?authuser=1"
+          "https://sites.google.com/view/assessment-vhego/portal-2-ujian"
         );
       }, 1200);
 
