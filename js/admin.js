@@ -83,3 +83,9 @@ async function sendAction(action, pesertaId, password) {
     alert("Server error");
   }
 }
+
+window.adminLogin = adminLogin;
+window.listPeserta = listPeserta;
+window.addPeserta = addPeserta;
+window.updatePeserta = updatePeserta;
+window.deletePeserta = deletePeserta;
