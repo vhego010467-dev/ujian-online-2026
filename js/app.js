@@ -1,34 +1,22 @@
+const BACKEND_URL =
+  "https://exam-worker.kiwi010467.workers.dev";
 
-import pesertaDB from "../data/peserta-db.js";
-
-const form =
-  document.getElementById("loginForm");
-
-const statusBox =
-  document.getElementById("statusBox");
-
-const loginBtn =
-  document.getElementById("loginBtn");
+const form = document.getElementById("loginForm");
+const statusBox = document.getElementById("statusBox");
+const loginBtn = document.getElementById("loginBtn");
 
 let isProcessing = false;
 
-form.addEventListener("submit", function (e) {
-
+form.addEventListener("submit", async function (e) {
   e.preventDefault();
 
-  // blokir spam klik
   if (isProcessing) return;
 
   isProcessing = true;
-
-  // disable tombol
   loginBtn.disabled = true;
+  loginBtn.innerHTML = "MEMPROSES...";
 
-  // ubah teks tombol
-  loginBtn.innerHTML =
-    "MEMPROSES...";
-
-  const id = document
+  const pesertaId = document
     .getElementById("pesertaId")
     .value
     .trim()
@@ -39,41 +27,47 @@ form.addEventListener("submit", function (e) {
     .value
     .trim();
 
-  // delay kecil anti spike
-  setTimeout(() => {
+  statusBox.innerHTML = "Memverifikasi login...";
 
-    if (
-      pesertaDB[id] &&
-      pesertaDB[id].password === password
-    ) {
+  try {
+    const response = await fetch(BACKEND_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        pesertaId,
+        password
+      })
+    });
 
+    const result = await response.json();
+
+    if (result.success) {
       statusBox.innerHTML =
         "Login berhasil. Mengalihkan ke halaman ujian...";
 
-      // redirect aman
       setTimeout(() => {
-
         window.location.replace(
           "https://sites.google.com/view/final-exam-v2025/HALAMAN-IOS?authuser=1"
         );
-
       }, 1200);
 
     } else {
-
       statusBox.innerHTML =
         "ID Peserta atau Password salah.";
 
-      // aktifkan tombol kembali
       loginBtn.disabled = false;
-
-      loginBtn.innerHTML =
-        "LOGIN UJIAN";
-
+      loginBtn.innerHTML = "LOGIN UJIAN";
       isProcessing = false;
     }
 
-  }, 500);
+  } catch (error) {
+    statusBox.innerHTML =
+      "Server sibuk. Coba lagi.";
 
+    loginBtn.disabled = false;
+    loginBtn.innerHTML = "LOGIN UJIAN";
+    isProcessing = false;
+  }
 });
-
